@@ -1,5 +1,4 @@
 # TimedDialogs
----
 Secuencia de `comandos`, ideal para crear dialogos, o cosas relacionadas.
 
 ## Comandos
