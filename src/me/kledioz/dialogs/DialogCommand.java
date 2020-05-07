@@ -50,16 +50,9 @@ public class DialogCommand implements CommandExecutor {
 											for (; currentPos < script.size(); currentPos++) {
 												String line = script.get(currentPos);
 												String[] lineSplitted = line.split(" ");
-												switch (lineSplitted[0].toLowerCase()) {
+												switch (lineSplitted[0].toUpperCase()) {
 												case "MESSAGE":
 													String message = line.replaceFirst(lineSplitted[0] + " ", "");
-//													for (int i = 1; i < lineSplitted.length; i++) {
-//														if (lineSplitted.length < i) {
-//															message += lineSplitted[i] + " ";
-//														} else {
-//															message += lineSplitted[i];
-//														}
-//													}
 													p.sendMessage(message.replace("&", "§"));
 													break;
 												case "COMMAND":
@@ -155,6 +148,7 @@ public class DialogCommand implements CommandExecutor {
 													} catch (Exception e) {
 														main.getLogger().log(Level.WARNING, String.format("Error, linea #%s (%s)", currentPos, line));
 													}
+													currentPos++;
 													return;
 												default:
 													main.getLogger().log(Level.WARNING, String.format("Instruccion #%s '%s' invalida. (%s)", currentPos, lineSplitted[0].toUpperCase(), line));
