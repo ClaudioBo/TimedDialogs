@@ -1,6 +1,5 @@
 package me.kledioz.dialogs;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,12 +10,12 @@ public class Main extends JavaPlugin {
 
 	Main pl;
 	HashMap<String, List<String>> dialogos;
-	ArrayList<BukkitTask> tasks;
+	HashMap<Integer, BukkitTask> tasks;
 
 	public void onEnable() {
 		pl = this;
 		dialogos = new HashMap<String, List<String>>();
-		tasks = new ArrayList<BukkitTask>();
+		tasks = new HashMap<Integer, BukkitTask>();
 		saveDefaultConfig();
 		reloadConfig();
 		getCommand("tdialogs").setExecutor(new DialogCommand(this));
@@ -28,7 +27,7 @@ public class Main extends JavaPlugin {
 	}
 
 	public void onDisable() {
-		for (BukkitTask task : tasks) {
+		for (BukkitTask task : tasks.values()) {
 			task.cancel();
 		}
 		tasks = null;

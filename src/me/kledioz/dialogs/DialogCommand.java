@@ -10,6 +10,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 
 import me.kledioz.dialogs.utils.TitleAPI;
 
@@ -37,7 +38,7 @@ public class DialogCommand implements CommandExecutor {
 						if (main.dialogos.containsKey(dialog)) {
 							Player sendTo = Bukkit.getPlayer(player);
 							if (sendTo != null && sendTo.isOnline()) {
-								main.tasks.add(new BukkitRunnable() {
+								BukkitTask i = new BukkitRunnable() {
 									Player p = sendTo;
 									List<String> script = main.dialogos.get(dialog);
 									int currentPos = 0;
@@ -162,12 +163,15 @@ public class DialogCommand implements CommandExecutor {
 											}
 											if (currentPos >= script.size()) {
 												this.cancel();
+												main.tasks.remove(getTaskId());
 											}
 										} else {
 											holdSecs--;
 										}
 									}
-								}.runTaskTimer(main, 0l, 20L));
+								}.runTaskTimer(main, 0l, 20L);
+								main.tasks.put(i.getTaskId(), i);
+
 							}
 						}
 					} else {
