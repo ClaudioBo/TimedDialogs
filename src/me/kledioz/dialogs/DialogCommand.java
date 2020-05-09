@@ -87,7 +87,7 @@ public class DialogCommand implements CommandExecutor {
 													}
 
 													try {
-														volume = Float.valueOf(lineSplitted[1]);
+														volume = Float.valueOf(lineSplitted[2]);
 													} catch (NumberFormatException e) {
 														main.getLogger().log(Level.WARNING, String.format("Volumen invalido, linea #%s (%s)", currentPos, line));
 													} catch (ArrayIndexOutOfBoundsException e) {
@@ -97,7 +97,7 @@ public class DialogCommand implements CommandExecutor {
 													}
 
 													try {
-														pitch = Float.valueOf(lineSplitted[2]);
+														pitch = Float.valueOf(lineSplitted[3]);
 													} catch (NumberFormatException e) {
 														main.getLogger().log(Level.WARNING, String.format("Tono invalido, linea #%s (%s)", currentPos, line));
 													} catch (ArrayIndexOutOfBoundsException e) {
