@@ -28,19 +28,19 @@ dialogs:
   - 'MESSAGE   &6&lHAZ COMENZADO UNA NUEVA CAMPAÑA'
   - 'MESSAGE   &fEsto es solo el comienzo'
   - 'MESSAGE '
-  - 'WAIT 4'
+  - 'WAIT 100'
   - 'SOUND VILLAGER_IDLE 1.0 1.0'
   - 'MESSAGE &6[Juanito] &a¡Hola!'
   conseguirCobblestone:
   - 'SOUND VILLAGER_IDLE 1.0 1.0'
   - 'MESSAGE &6[Juanito] &aQue onda, necesito que me hagas un favor'
-  - 'WAIT 1'
+  - 'WAIT 20'
   - 'SOUND VILLAGER_IDLE 1.0 1.0'
   - 'MESSAGE &6[Juanito] &aEn estos momentos estoy juntando recursos, para construir una casa'
-  - 'WAIT 1'
+  - 'WAIT 20'
   - 'SOUND VILLAGER_IDLE 1.0 1.0'
   - 'MESSAGE &6[Juanito] &aNecesito que me consigas &e36 bloques de Cobblestone'
-  - 'WAIT 1'
+  - 'WAIT 20'
   - 'SOUND VILLAGER_IDLE 1.0 1.0'
   - 'MESSAGE &6[Juanito] &aVe por ellos, porfavor.'
 ```
@@ -53,7 +53,7 @@ Cada dialogo, tendra una lista de *instrucciones* que sera ejecutadas secuencial
   - MESSAGE <message...>
   - COMMAND \<AS_SERVER/AS_PLAYER\> <command {player}...>
   - SOUND \<bukkitEnum\> <volume 0.0 to 2.0> <pitch 0.5 to 2.0>
-  - WAIT \<seconds\>
+  - WAIT \<20 ticks = 1 second\>
 
 
 ---

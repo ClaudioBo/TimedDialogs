@@ -48,11 +48,11 @@ public class DialogCommand implements CommandExecutor {
 								Player p = sendTo;
 								List<String> script = main.dialogos.get(dialog);
 								int currentPos = 0;
-								int holdSecs = 0;
+								int holdTicks = 0;
 
 								@Override
 								public void run() {
-									if (holdSecs <= 0) {
+									if (holdTicks <= 0) {
 										for (; currentPos < script.size(); currentPos++) {
 											String line = script.get(currentPos);
 											String[] lineSplitted = line.split(" ");
@@ -157,9 +157,9 @@ public class DialogCommand implements CommandExecutor {
 												break;
 											case "WAIT":
 												try {
-													holdSecs = Integer.parseInt(lineSplitted[1]);
+													holdTicks = Integer.parseInt(lineSplitted[1]);
 												} catch (NumberFormatException e) {
-													main.getLogger().log(Level.WARNING, String.format("Segundos invalidos, linea #%s (%s)", currentPos, line));
+													main.getLogger().log(Level.WARNING, String.format("Ticks invalidos, linea #%s (%s)", currentPos, line));
 												} catch (ArrayIndexOutOfBoundsException e) {
 													main.getLogger().log(Level.WARNING, String.format("Faltan argumentos, linea #%s (%s)", currentPos, line));
 												} catch (Exception e) {
@@ -177,10 +177,10 @@ public class DialogCommand implements CommandExecutor {
 											main.tasks.remove(p);
 										}
 									} else {
-										holdSecs--;
+										holdTicks--;
 									}
 								}
-							}.runTaskTimer(main, 0l, 20L);
+							}.runTaskTimer(main, 0l, 1L);
 							main.tasks.put(sendTo, i);
 
 						} else {
