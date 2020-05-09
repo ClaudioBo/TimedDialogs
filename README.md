@@ -52,7 +52,7 @@ Cada dialogo, tendra una lista de *instrucciones* que sera ejecutadas secuencial
   - TITLE \<fadeInTicks\> \<stayTicks\> \<fadeOutTicks\> \<message...\>
   - MESSAGE <message...>
   - COMMAND \<AS_SERVER/AS_PLAYER\> <command {player}...>
-  - SOUND \<bukkitEnum\> <volume 0.0 to 2.0> <pitch 0.0 to 2.0>
+  - SOUND \<bukkitEnum\> <volume 0.0 to 2.0> <pitch 0.5 to 2.0>
   - WAIT \<seconds\>
 
 
