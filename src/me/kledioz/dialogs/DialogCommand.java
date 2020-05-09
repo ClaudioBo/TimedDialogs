@@ -71,14 +71,25 @@ public class DialogCommand implements CommandExecutor {
 												break;
 											case "SOUND":
 												Sound snd = null;
-												float pitch = 0f;
+												float volume = 1f;
+												float pitch = 1f;
 
 												// WTF xd
 												try {
 													try {
 														snd = Sound.valueOf(lineSplitted[1].toUpperCase());
 													} catch (NumberFormatException e) {
-														main.getLogger().log(Level.WARNING, String.format("Segundos invalidos, linea #%s (%s)", currentPos, line));
+														main.getLogger().log(Level.WARNING, String.format("Sonido invalido, linea #%s (%s)", currentPos, line));
+													} catch (ArrayIndexOutOfBoundsException e) {
+														main.getLogger().log(Level.WARNING, String.format("Faltan argumentos, linea #%s (%s)", currentPos, line));
+													} catch (Exception e) {
+														main.getLogger().log(Level.WARNING, String.format("Error, linea #%s (%s)", currentPos, line));
+													}
+
+													try {
+														volume = Float.valueOf(lineSplitted[1]);
+													} catch (NumberFormatException e) {
+														main.getLogger().log(Level.WARNING, String.format("Volumen invalido, linea #%s (%s)", currentPos, line));
 													} catch (ArrayIndexOutOfBoundsException e) {
 														main.getLogger().log(Level.WARNING, String.format("Faltan argumentos, linea #%s (%s)", currentPos, line));
 													} catch (Exception e) {
@@ -88,7 +99,7 @@ public class DialogCommand implements CommandExecutor {
 													try {
 														pitch = Float.valueOf(lineSplitted[2]);
 													} catch (NumberFormatException e) {
-														main.getLogger().log(Level.WARNING, String.format("Segundos invalidos, linea #%s (%s)", currentPos, line));
+														main.getLogger().log(Level.WARNING, String.format("Tono invalido, linea #%s (%s)", currentPos, line));
 													} catch (ArrayIndexOutOfBoundsException e) {
 														main.getLogger().log(Level.WARNING, String.format("Faltan argumentos, linea #%s (%s)", currentPos, line));
 													} catch (Exception e) {
@@ -98,7 +109,7 @@ public class DialogCommand implements CommandExecutor {
 													break;
 												}
 
-												p.playSound(p.getLocation(), snd, 1f, pitch);
+												p.playSound(p.getLocation(), snd, volume, pitch);
 												break;
 											case "TITLE":
 												int fadeIn = 0;
@@ -170,7 +181,7 @@ public class DialogCommand implements CommandExecutor {
 									}
 								}
 							}.runTaskTimer(main, 0l, 20L);
-							main.tasks.put((Player) sender, i);
+							main.tasks.put(sendTo, i);
 
 						} else {
 							sender.sendMessage("§cUsuario no encontrado.");

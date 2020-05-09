@@ -29,19 +29,19 @@ dialogs:
   - 'MESSAGE   &fEsto es solo el comienzo'
   - 'MESSAGE '
   - 'WAIT 4'
-  - 'SOUND VILLAGER_IDLE 1.0'
+  - 'SOUND VILLAGER_IDLE 1.0 1.0'
   - 'MESSAGE &6[Juanito] &a¡Hola!'
   conseguirCobblestone:
-  - 'SOUND VILLAGER_IDLE 1.0'
+  - 'SOUND VILLAGER_IDLE 1.0 1.0'
   - 'MESSAGE &6[Juanito] &aQue onda, necesito que me hagas un favor'
   - 'WAIT 1'
-  - 'SOUND VILLAGER_IDLE 1.0'
+  - 'SOUND VILLAGER_IDLE 1.0 1.0'
   - 'MESSAGE &6[Juanito] &aEn estos momentos estoy juntando recursos, para construir una casa'
   - 'WAIT 1'
-  - 'SOUND VILLAGER_IDLE 1.0'
+  - 'SOUND VILLAGER_IDLE 1.0 1.0'
   - 'MESSAGE &6[Juanito] &aNecesito que me consigas &e36 bloques de Cobblestone'
   - 'WAIT 1'
-  - 'SOUND VILLAGER_IDLE 1.0'
+  - 'SOUND VILLAGER_IDLE 1.0 1.0'
   - 'MESSAGE &6[Juanito] &aVe por ellos, porfavor.'
 ```
 `dialogs` es la contenedora de todos los 'dialogos'
@@ -52,7 +52,7 @@ Cada dialogo, tendra una lista de *instrucciones* que sera ejecutadas secuencial
   - TITLE \<fadeInTicks\> \<stayTicks\> \<fadeOutTicks\> \<message...\>
   - MESSAGE <message...>
   - COMMAND \<AS_SERVER/AS_PLAYER\> <command {player}...>
-  - SOUND \<bukkitEnum\> <pitch 0.0 to 2.0>
+  - SOUND \<bukkitEnum\> <volume 0.0 to 2.0> <pitch 0.0 to 2.0>
   - WAIT \<seconds\>
 
 
