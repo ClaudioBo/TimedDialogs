@@ -1,0 +1,7 @@
+main: me.kledioz.dialogs.Main
+name: TimedDialogs
+author: Kledioz
+version: 1.0
+softdepend: [PlaceholderAPI]
+commands:
+  tdialogs:
